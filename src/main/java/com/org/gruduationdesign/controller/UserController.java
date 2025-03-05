@@ -2,7 +2,6 @@ package com.org.gruduationdesign.controller;
 
 import com.org.gruduationdesign.common.BaseResponse;
 import com.org.gruduationdesign.common.ResultUtils;
-import com.org.gruduationdesign.constant.UserConstant;
 import com.org.gruduationdesign.exception.ErrorCode;
 import com.org.gruduationdesign.exception.ThrowUtils;
 import com.org.gruduationdesign.model.dto.user.UserLoginRequest;
@@ -51,6 +50,11 @@ public class UserController {
         return ResultUtils.sucess(userService.getLoginUserVO(loginUser));
     }
 
+    /**
+     * 用户登出
+     * @param httpServletRequest http请求对象
+     * @return true/false
+     */
     @GetMapping("/userLogout")
     public BaseResponse<Boolean> userLogout(HttpServletRequest httpServletRequest) {
         ThrowUtils.throwIf(httpServletRequest == null, ErrorCode.PARAMS_ERROR);
